@@ -9,14 +9,14 @@ import SwiftUI
 import CoreData
 
 struct RecipesView: View {
-    @StateObject private var recipesList = RecipesViewModel(service: RecipesService())
+    @StateObject private var viewModel = RecipesViewModel(service: RecipesService())
     
     @ScaledMetric var scale: CGFloat = 1
     
     var body: some View {
         NavigationView {
             List {
-                ForEach(recipesList.recipes) { recipe in
+                ForEach(viewModel.recipes) { recipe in
                     HStack(alignment: .center, spacing: 5) {
                         Image(recipe.thumbnailPath)
                             .resizable()
@@ -35,7 +35,7 @@ struct RecipesView: View {
             }
         }
         .task {
-            recipesList.load()
+            await viewModel.load()
         }
     }
 }

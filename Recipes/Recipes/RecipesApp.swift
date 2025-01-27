@@ -13,7 +13,7 @@ struct RecipesApp: App {
 
     var body: some Scene {
         WindowGroup {
-            RecipesList()
+            RecipesView()
         }
     }
 }
