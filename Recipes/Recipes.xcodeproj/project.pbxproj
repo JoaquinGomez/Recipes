@@ -19,6 +19,7 @@
 		D29EEDBC2D47244F008AD3ED /* RecipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29EEDBB2D47244F008AD3ED /* RecipeModel.swift */; };
 		D29EEDBE2D4725C4008AD3ED /* RecipesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29EEDBD2D4725C4008AD3ED /* RecipesViewModel.swift */; };
 		D29EEDC02D472CDB008AD3ED /* RecipesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29EEDBF2D472CDB008AD3ED /* RecipesService.swift */; };
+		D29EEDC22D47407E008AD3ED /* FeatureFlagsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29EEDC12D47407E008AD3ED /* FeatureFlagsProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		D29EEDBB2D47244F008AD3ED /* RecipeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeModel.swift; sourceTree = "<group>"; };
 		D29EEDBD2D4725C4008AD3ED /* RecipesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesViewModel.swift; sourceTree = "<group>"; };
 		D29EEDBF2D472CDB008AD3ED /* RecipesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesService.swift; sourceTree = "<group>"; };
+		D29EEDC12D47407E008AD3ED /* FeatureFlagsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureFlagsProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 				D29EEDBB2D47244F008AD3ED /* RecipeModel.swift */,
 				D29EEDBD2D4725C4008AD3ED /* RecipesViewModel.swift */,
 				D29EEDBF2D472CDB008AD3ED /* RecipesService.swift */,
+				D29EEDC12D47407E008AD3ED /* FeatureFlagsProvider.swift */,
 			);
 			path = Recipes;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D29EED962D4719A0008AD3ED /* Persistence.swift in Sources */,
+				D29EEDC22D47407E008AD3ED /* FeatureFlagsProvider.swift in Sources */,
 				D29EED8F2D47199E008AD3ED /* RecipesView.swift in Sources */,
 				D29EED8D2D47199E008AD3ED /* RecipesApp.swift in Sources */,
 				D29EED992D4719A0008AD3ED /* Recipes.xcdatamodeld in Sources */,

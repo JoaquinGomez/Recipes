@@ -12,16 +12,31 @@ protocol RecipesServiceProtocol {
 }
 
 final class RecipesService: RecipesServiceProtocol {
+    private var featureFlagsProvider: FeatureFlagsProviderProtocol
+    
+    init(featureFlagsProvider: FeatureFlagsProviderProtocol) {
+        self.featureFlagsProvider = featureFlagsProvider
+    }
+    
     func getRecipes() async throws -> [RecipeModel] {
-        [
-            RecipeModel(
-                id: UUID(),
-                name: "Recipe's name",
-                cuisine: "Recipe's type of cuisine",
-                thumbnailPath: ""
-            )
-        ]
-        //throw NSError(domain: "123", code: 1)
-        //[]
+        try await Task.sleep(for: .seconds(2.0))
+        switch featureFlagsProvider.expectedServiceResponse {
+        case .empty:
+            featureFlagsProvider.expectedServiceResponse = .error
+            return []
+        case .success:
+            featureFlagsProvider.expectedServiceResponse = .empty
+            return [
+                RecipeModel(
+                    id: UUID(),
+                    name: "Recipe's name",
+                    cuisine: "Recipe's type of cuisine",
+                    thumbnailPath: ""
+                )
+            ]
+        case .error:
+            featureFlagsProvider.expectedServiceResponse = .success
+            throw NSError(domain: "123", code: 1)
+        }
     }
 }
