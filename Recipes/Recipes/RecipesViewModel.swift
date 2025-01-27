@@ -10,6 +10,8 @@ import Foundation
 @MainActor
 final class RecipesViewModel: ObservableObject {
     @Published var recipes: [RecipeModel] = []
+    @Published var error: String? = nil
+    @Published var isEmpty: Bool = true
     
     private let service: RecipesServiceProtocol
     
@@ -20,8 +22,9 @@ final class RecipesViewModel: ObservableObject {
     func load() async {
         do {
             recipes = try await service.getRecipes()
+            isEmpty = recipes.count < 1
         } catch {
-            print(error)
+            self.error = error.localizedDescription
         }
     }
 }

@@ -21,5 +21,7 @@ final class RecipesService: RecipesServiceProtocol {
                 thumbnailPath: ""
             )
         ]
+        //throw NSError(domain: "123", code: 1)
+        //[]
     }
 }
