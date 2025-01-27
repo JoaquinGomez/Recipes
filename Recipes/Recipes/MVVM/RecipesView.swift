@@ -19,7 +19,7 @@ struct RecipesView: View {
     
     var body: some View {
         NavigationView {
-            if viewModel.isFirstLoad {
+            if viewModel.error == nil && viewModel.model == nil {
                 ProgressView()
             } else {
                 List {

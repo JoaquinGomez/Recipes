@@ -11,7 +11,6 @@ import Foundation
 final class RecipesViewModel: ObservableObject {
     @Published var model: RecipeModel?
     @Published var error: String? = nil
-    @Published var isFirstLoad: Bool = true
     
     private let service: RecipesServiceProtocol
     
@@ -26,6 +25,5 @@ final class RecipesViewModel: ObservableObject {
         } catch {
             self.error = error.localizedDescription
         }
-        isFirstLoad = false
     }
 }
