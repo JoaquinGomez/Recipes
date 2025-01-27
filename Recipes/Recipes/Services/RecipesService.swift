@@ -8,7 +8,7 @@
 import Foundation
 
 protocol RecipesServiceProtocol {
-    func getRecipes() async throws -> [RecipeModel]
+    func getRecipes() async throws -> RecipeModel
 }
 
 final class RecipesService: RecipesServiceProtocol {
@@ -18,25 +18,28 @@ final class RecipesService: RecipesServiceProtocol {
         self.featureFlagsProvider = featureFlagsProvider
     }
     
-    func getRecipes() async throws -> [RecipeModel] {
-        try await Task.sleep(for: .seconds(2.0))
+    func getRecipes() async throws -> RecipeModel {
+        let url: URL?
         switch featureFlagsProvider.expectedServiceResponse {
         case .empty:
             featureFlagsProvider.expectedServiceResponse = .error
-            return []
+            url = URL(string: "https://d3jbb8n5wk0qxi.cloudfront.net/recipes-empty.json")
         case .success:
             featureFlagsProvider.expectedServiceResponse = .empty
-            return [
-                RecipeModel(
-                    id: UUID(),
-                    name: "Recipe's name",
-                    cuisine: "Recipe's type of cuisine",
-                    thumbnailPath: ""
-                )
-            ]
+            url = URL(string: "https://d3jbb8n5wk0qxi.cloudfront.net/recipes.json")
         case .error:
             featureFlagsProvider.expectedServiceResponse = .success
-            throw NSError(domain: "123", code: 1)
+            url = URL(string: "https://d3jbb8n5wk0qxi.cloudfront.net/recipes-malformed.json")
+        }
+        guard let url = url else {
+            throw RecipesServiceError.invalidURL
+        }
+        let (data, _) = try await URLSession.shared.data(from: url)
+        let decoder = JSONDecoder()
+        do {
+            return try decoder.decode(RecipeModel.self, from: data)
+        } catch {
+            throw error
         }
     }
 }

@@ -25,22 +25,24 @@ struct RecipesView: View {
                 List {
                     if let error = viewModel.error {
                         Text(error)
-                    } else if viewModel.recipes.count == 0 {
-                        Text("There are no recipes to show, please try again")
-                    } else {
-                        ForEach(viewModel.recipes) { recipe in
-                            HStack(alignment: .center, spacing: 5) {
-                                Image(recipe.thumbnailPath)
-                                    .resizable()
-                                    .frame(width: 50 * scale, height: 50 * scale)
-                                
-                                VStack(alignment: .leading, spacing: 5) {
-                                    Text(recipe.name)
-                                        .font(.headline)
+                    } else if let recipes = viewModel.model?.recipes {
+                        if recipes.count == 0 {
+                            Text("There are no recipes to show, please try again")
+                        } else {
+                            ForEach(recipes) { recipe in
+                                HStack(alignment: .center, spacing: 5) {
+                                    Image(recipe.thumbnailPath)
+                                        .resizable()
+                                        .frame(width: 50 * scale, height: 50 * scale)
                                     
-                                    Text(recipe.cuisine)
-                                        .font(.subheadline)
-                                        .foregroundColor(.secondary)
+                                    VStack(alignment: .leading, spacing: 5) {
+                                        Text(recipe.name)
+                                            .font(.headline)
+                                        
+                                        Text(recipe.cuisine)
+                                            .font(.subheadline)
+                                            .foregroundColor(.secondary)
+                                    }
                                 }
                             }
                         }

@@ -20,6 +20,7 @@
 		D29EEDBE2D4725C4008AD3ED /* RecipesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29EEDBD2D4725C4008AD3ED /* RecipesViewModel.swift */; };
 		D29EEDC02D472CDB008AD3ED /* RecipesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29EEDBF2D472CDB008AD3ED /* RecipesService.swift */; };
 		D29EEDC22D47407E008AD3ED /* FeatureFlagsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29EEDC12D47407E008AD3ED /* FeatureFlagsProvider.swift */; };
+		D29EEDC82D47EC75008AD3ED /* RecipesServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29EEDC72D47EC75008AD3ED /* RecipesServiceError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		D29EEDBD2D4725C4008AD3ED /* RecipesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesViewModel.swift; sourceTree = "<group>"; };
 		D29EEDBF2D472CDB008AD3ED /* RecipesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesService.swift; sourceTree = "<group>"; };
 		D29EEDC12D47407E008AD3ED /* FeatureFlagsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureFlagsProvider.swift; sourceTree = "<group>"; };
+		D29EEDC72D47EC75008AD3ED /* RecipesServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesServiceError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,16 +108,14 @@
 		D29EED8B2D47199E008AD3ED /* Recipes */ = {
 			isa = PBXGroup;
 			children = (
+				D29EEDC62D47EC35008AD3ED /* Providers */,
+				D29EEDC52D47EC17008AD3ED /* Services */,
+				D29EEDC32D47EBE1008AD3ED /* MVVM */,
 				D29EED8C2D47199E008AD3ED /* RecipesApp.swift */,
-				D29EED8E2D47199E008AD3ED /* RecipesView.swift */,
 				D29EED902D4719A0008AD3ED /* Assets.xcassets */,
 				D29EED952D4719A0008AD3ED /* Persistence.swift */,
 				D29EED972D4719A0008AD3ED /* Recipes.xcdatamodeld */,
 				D29EED922D4719A0008AD3ED /* Preview Content */,
-				D29EEDBB2D47244F008AD3ED /* RecipeModel.swift */,
-				D29EEDBD2D4725C4008AD3ED /* RecipesViewModel.swift */,
-				D29EEDBF2D472CDB008AD3ED /* RecipesService.swift */,
-				D29EEDC12D47407E008AD3ED /* FeatureFlagsProvider.swift */,
 			);
 			path = Recipes;
 			sourceTree = "<group>";
@@ -143,6 +143,41 @@
 				D29EEDAE2D4719A1008AD3ED /* RecipesUITestsLaunchTests.swift */,
 			);
 			path = RecipesUITests;
+			sourceTree = "<group>";
+		};
+		D29EEDC32D47EBE1008AD3ED /* MVVM */ = {
+			isa = PBXGroup;
+			children = (
+				D29EEDC42D47EBFA008AD3ED /* Model */,
+				D29EED8E2D47199E008AD3ED /* RecipesView.swift */,
+				D29EEDBD2D4725C4008AD3ED /* RecipesViewModel.swift */,
+			);
+			path = MVVM;
+			sourceTree = "<group>";
+		};
+		D29EEDC42D47EBFA008AD3ED /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D29EEDBB2D47244F008AD3ED /* RecipeModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D29EEDC52D47EC17008AD3ED /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				D29EEDBF2D472CDB008AD3ED /* RecipesService.swift */,
+				D29EEDC72D47EC75008AD3ED /* RecipesServiceError.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		D29EEDC62D47EC35008AD3ED /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+				D29EEDC12D47407E008AD3ED /* FeatureFlagsProvider.swift */,
+			);
+			path = Providers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,6 +317,7 @@
 				D29EED992D4719A0008AD3ED /* Recipes.xcdatamodeld in Sources */,
 				D29EEDBC2D47244F008AD3ED /* RecipeModel.swift in Sources */,
 				D29EEDBE2D4725C4008AD3ED /* RecipesViewModel.swift in Sources */,
+				D29EEDC82D47EC75008AD3ED /* RecipesServiceError.swift in Sources */,
 				D29EEDC02D472CDB008AD3ED /* RecipesService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -448,6 +484,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -476,6 +513,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

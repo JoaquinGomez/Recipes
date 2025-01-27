@@ -9,7 +9,7 @@ import Foundation
 
 @MainActor
 final class RecipesViewModel: ObservableObject {
-    @Published var recipes: [RecipeModel] = []
+    @Published var model: RecipeModel?
     @Published var error: String? = nil
     @Published var isFirstLoad: Bool = true
     
@@ -21,7 +21,7 @@ final class RecipesViewModel: ObservableObject {
     
     func load() async {
         do {
-            recipes = try await service.getRecipes()
+            model = try await service.getRecipes()
             error = nil
         } catch {
             self.error = error.localizedDescription
