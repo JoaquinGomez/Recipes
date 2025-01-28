@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct RecipeModel: Decodable {
     let recipes: [Recipe]
