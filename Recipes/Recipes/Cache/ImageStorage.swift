@@ -8,17 +8,17 @@
 import CoreData
 
 protocol ImageStorageProtocol {
-    func create(_ image: Data, url: String) throws
+    func create(_ image: Data, url: String) async throws
     func read(url: String) async throws -> Item?
     func delete(url: String) async throws
 }
 
 struct ImageStorage: ImageStorageProtocol {
     static let shared = ImageStorage()
-
+    
     private let container: NSPersistentContainer
     private let context: NSManagedObjectContext
-
+    
     private init() {
         container = NSPersistentContainer(name: "Recipes")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
@@ -30,15 +30,17 @@ struct ImageStorage: ImageStorageProtocol {
         context.automaticallyMergesChangesFromParent = true
     }
     
-    func create(_ image: Data, url: String) throws {
-        let newItem = Item(context: context)
-        newItem.timestamp = Date()
-        newItem.url = url
-        newItem.data = image
-        do {
-            try context.save()
-        } catch {
-            throw error
+    func create(_ image: Data, url: String) async throws {
+        await context.perform {
+            let newItem = Item(context: context)
+            newItem.timestamp = Date()
+            newItem.url = url
+            newItem.data = image
+            do {
+                try context.save()
+            } catch {
+                print("Failed to save image: \(error)")
+            }
         }
     }
     
@@ -60,8 +62,10 @@ struct ImageStorage: ImageStorageProtocol {
         do {
             let item = try await read(url: url)
             if let item {
-                context.delete(item)
-                try context.save()
+                try await context.perform {
+                    context.delete(item)
+                    try context.save()
+                }
             }
         } catch {
             throw error

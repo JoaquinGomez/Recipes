@@ -12,6 +12,12 @@ struct RecipesView: View {
     @StateObject private var viewModel = RecipesViewModel(
         service: RecipesService(
             featureFlagsProvider: FeatureFlagsProvider.shared
+        ),
+        imageProvider: ImageProvider(
+            cache: ImageCache(
+                cacheExpiration: 0,
+                imageStorage: ImageStorage.shared
+            )
         )
     )
     
@@ -30,12 +36,21 @@ struct RecipesView: View {
                             Text("There are no recipes to show, please try again")
                         } else {
                             ForEach(recipes) { recipe in
-                                HStack(alignment: .center, spacing: 5) {
-                                    Image(recipe.thumbnailPath)
+                                HStack(alignment: .center, spacing: 15) {
+                                    Image(uiImage: recipe.image ?? UIImage(systemName: "fork.knife")!)
                                         .resizable()
+                                        .scaledToFit()
                                         .frame(width: 50 * scale, height: 50 * scale)
+                                        .onAppear {
+                                            Task {
+                                                if recipe.image == nil {
+                                                    await viewModel.loadImage(for: recipe)
+                                                }
+                                            }
+                                        }
                                     
                                     VStack(alignment: .leading, spacing: 5) {
+                                        
                                         Text(recipe.name)
                                             .font(.headline)
                                         

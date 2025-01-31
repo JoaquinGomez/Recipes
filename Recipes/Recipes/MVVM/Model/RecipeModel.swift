@@ -9,10 +9,10 @@ import Foundation
 import UIKit
 
 struct RecipeModel: Decodable {
-    let recipes: [Recipe]
+    var recipes: [Recipe]
 }
 
-struct Recipe: Identifiable, Decodable {
+final class Recipe: Identifiable, Decodable {
     enum CodingKeys: String, CodingKey {
         case name, cuisine
         case uuid = "uuid"
@@ -23,6 +23,8 @@ struct Recipe: Identifiable, Decodable {
     let name: String
     let cuisine: String
     let thumbnailPath: String
+    
+    var image: UIImage?
     
     var id: UUID {
         UUID(uuidString: uuid) ?? .init()

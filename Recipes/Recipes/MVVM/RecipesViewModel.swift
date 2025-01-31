@@ -9,13 +9,15 @@ import Foundation
 
 @MainActor
 final class RecipesViewModel: ObservableObject {
-    @Published var model: RecipeModel?
-    @Published var error: String? = nil
+    @Published private(set) var model: RecipeModel?
+    @Published private(set) var error: String? = nil
     
     private let service: RecipesServiceProtocol
+    private let imageProvider: ImageProviderProtocol
     
-    init(service: RecipesServiceProtocol) {
+    init(service: RecipesServiceProtocol, imageProvider: ImageProviderProtocol) {
         self.service = service
+        self.imageProvider = imageProvider
     }
     
     func load() async {
@@ -24,6 +26,18 @@ final class RecipesViewModel: ObservableObject {
             error = nil
         } catch {
             self.error = error.localizedDescription
+        }
+    }
+    
+    func loadImage(for recipe: Recipe) async {
+        if let index = model?.recipes.firstIndex(where: { $0.uuid == recipe.uuid }) {
+            print("loading image for recipe at index \(index)")
+        }
+        if let image = await imageProvider.getImage(urlString: recipe.thumbnailPath) {
+            await MainActor.run {
+                recipe.image = image
+                objectWillChange.send()
+            }
         }
     }
 }

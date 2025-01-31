@@ -10,7 +10,7 @@ import UIKit
 
 protocol ImageCacheProtocol {
     func getImage(urlString: String) async -> Data?
-    func saveImage(urlString: String, data: Data)
+    func saveImage(urlString: String, data: Data) async
 }
 
 final class ImageCache: ImageCacheProtocol {
@@ -40,9 +40,9 @@ final class ImageCache: ImageCacheProtocol {
     }
     
     
-    func saveImage(urlString: String, data: Data) {
+    func saveImage(urlString: String, data: Data) async {
         do {
-            try imageStorage.create(data, url: urlString)
+            try await imageStorage.create(data, url: urlString)
         } catch {
             print(error)
         }

@@ -24,16 +24,23 @@ final class ImageProvider: ImageProviderProtocol {
             let result: UIImage?
             if let cachedData = await cache?.getImage(urlString: urlString), let cachedImage = UIImage(data: cachedData) {
                 result = cachedImage
+                print("image cached")
             } else {
                 guard let url = URL(string: urlString) else {
                     return nil
                 }
-                let (data, _) = try await URLSession.shared.data(from: url)
+                
+                var request = URLRequest(url: url)
+                request.cachePolicy = .reloadIgnoringLocalCacheData
+                let (data, _) = try await URLSession.shared.data(for: request)
                 guard let image = UIImage(data: data) else {
                     return nil
                 }
-                cache?.saveImage(urlString: urlString, data: data)
+                Task {
+                    await cache?.saveImage(urlString: urlString, data: data)
+                }
                 result = image
+                print("image fetched")
             }
             return result
         } catch {
