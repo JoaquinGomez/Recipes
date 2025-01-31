@@ -13,9 +13,11 @@ protocol RecipesServiceProtocol {
 
 final class RecipesService: RecipesServiceProtocol {
     private var featureFlagsProvider: FeatureFlagsProviderProtocol
+    private let dataFetcher: DataFetcherProtocol
     
-    init(featureFlagsProvider: FeatureFlagsProviderProtocol) {
+    init(featureFlagsProvider: FeatureFlagsProviderProtocol, dataFetcher: DataFetcherProtocol) {
         self.featureFlagsProvider = featureFlagsProvider
+        self.dataFetcher = dataFetcher
     }
     
     func getRecipes() async throws -> RecipeModel {
@@ -34,7 +36,7 @@ final class RecipesService: RecipesServiceProtocol {
         guard let url = url else {
             throw RecipesServiceError.invalidURL
         }
-        let (data, _) = try await URLSession.shared.data(from: url)
+        let (data, _) = try await dataFetcher.data(from: url)
         let decoder = JSONDecoder()
         do {
             return try decoder.decode(RecipeModel.self, from: data)

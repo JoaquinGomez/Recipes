@@ -14,9 +14,11 @@ protocol ImageProviderProtocol {
 
 final class ImageProvider: ImageProviderProtocol {
     private let cache: ImageCacheProtocol?
+    private let dataFetcher: DataFetcherProtocol
     
-    init(cache: ImageCacheProtocol?) {
+    init(cache: ImageCacheProtocol?, dataFetcher: DataFetcherProtocol) {
         self.cache = cache
+        self.dataFetcher = dataFetcher
     }
     
     func getImage(urlString: String) async -> UIImage? {
@@ -32,7 +34,7 @@ final class ImageProvider: ImageProviderProtocol {
                 
                 var request = URLRequest(url: url)
                 request.cachePolicy = .reloadIgnoringLocalCacheData
-                let (data, _) = try await URLSession.shared.data(for: request)
+                let (data, _) = try await dataFetcher.data(for: request)
                 guard let image = UIImage(data: data) else {
                     return nil
                 }

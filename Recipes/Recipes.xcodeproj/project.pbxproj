@@ -23,6 +23,7 @@
 		D29EEDC82D47EC75008AD3ED /* RecipesServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29EEDC72D47EC75008AD3ED /* RecipesServiceError.swift */; };
 		D29EEDCA2D488EF3008AD3ED /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29EEDC92D488EF3008AD3ED /* ImageProvider.swift */; };
 		D29EEDCD2D48A3B3008AD3ED /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29EEDCC2D48A3B3008AD3ED /* ImageCache.swift */; };
+		D29EEDCF2D4CA0FD008AD3ED /* DataFetcherProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29EEDCE2D4CA0FD008AD3ED /* DataFetcherProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		D29EEDC72D47EC75008AD3ED /* RecipesServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesServiceError.swift; sourceTree = "<group>"; };
 		D29EEDC92D488EF3008AD3ED /* ImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProvider.swift; sourceTree = "<group>"; };
 		D29EEDCC2D48A3B3008AD3ED /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		D29EEDCE2D4CA0FD008AD3ED /* DataFetcherProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcherProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 				D29EED902D4719A0008AD3ED /* Assets.xcassets */,
 				D29EED972D4719A0008AD3ED /* Recipes.xcdatamodeld */,
 				D29EED922D4719A0008AD3ED /* Preview Content */,
+				D29EEDCE2D4CA0FD008AD3ED /* DataFetcherProtocol.swift */,
 			);
 			path = Recipes;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D29EEDCD2D48A3B3008AD3ED /* ImageCache.swift in Sources */,
+				D29EEDCF2D4CA0FD008AD3ED /* DataFetcherProtocol.swift in Sources */,
 				D29EEDCA2D488EF3008AD3ED /* ImageProvider.swift in Sources */,
 				D29EED962D4719A0008AD3ED /* ImageStorage.swift in Sources */,
 				D29EEDC22D47407E008AD3ED /* FeatureFlagsProvider.swift in Sources */,

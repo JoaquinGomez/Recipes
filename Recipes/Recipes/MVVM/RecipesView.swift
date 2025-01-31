@@ -11,13 +11,15 @@ import CoreData
 struct RecipesView: View {
     @StateObject private var viewModel = RecipesViewModel(
         service: RecipesService(
-            featureFlagsProvider: FeatureFlagsProvider.shared
+            featureFlagsProvider: FeatureFlagsProvider.shared,
+            dataFetcher: URLSession.shared
         ),
         imageProvider: ImageProvider(
             cache: ImageCache(
                 cacheExpiration: 1000000,
                 imageStorage: ImageStorage.shared
-            )
+            ),
+            dataFetcher: URLSession.shared
         )
     )
     
