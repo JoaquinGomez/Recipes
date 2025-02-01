@@ -17,7 +17,7 @@ struct RecipesView: View {
         imageProvider: ImageProvider(
             cache: ImageCache(
                 cacheExpiration: 1000000,
-                imageStorage: ImageStorage.shared
+                imageStorage: ImageStorageFactory.makeImageStorage()
             ),
             dataFetcher: URLSession.shared
         )

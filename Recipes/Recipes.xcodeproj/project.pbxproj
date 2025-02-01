@@ -24,6 +24,7 @@
 		D29EEDCA2D488EF3008AD3ED /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29EEDC92D488EF3008AD3ED /* ImageProvider.swift */; };
 		D29EEDCD2D48A3B3008AD3ED /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29EEDCC2D48A3B3008AD3ED /* ImageCache.swift */; };
 		D29EEDCF2D4CA0FD008AD3ED /* DataFetcherProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29EEDCE2D4CA0FD008AD3ED /* DataFetcherProtocol.swift */; };
+		D29EEDD12D4E78AF008AD3ED /* ImageStorageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29EEDD02D4E78AF008AD3ED /* ImageStorageFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		D29EEDC92D488EF3008AD3ED /* ImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProvider.swift; sourceTree = "<group>"; };
 		D29EEDCC2D48A3B3008AD3ED /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		D29EEDCE2D4CA0FD008AD3ED /* DataFetcherProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcherProtocol.swift; sourceTree = "<group>"; };
+		D29EEDD02D4E78AF008AD3ED /* ImageStorageFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStorageFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +195,7 @@
 			children = (
 				D29EED952D4719A0008AD3ED /* ImageStorage.swift */,
 				D29EEDCC2D48A3B3008AD3ED /* ImageCache.swift */,
+				D29EEDD02D4E78AF008AD3ED /* ImageStorageFactory.swift */,
 			);
 			path = Cache;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 				D29EEDCF2D4CA0FD008AD3ED /* DataFetcherProtocol.swift in Sources */,
 				D29EEDCA2D488EF3008AD3ED /* ImageProvider.swift in Sources */,
 				D29EED962D4719A0008AD3ED /* ImageStorage.swift in Sources */,
+				D29EEDD12D4E78AF008AD3ED /* ImageStorageFactory.swift in Sources */,
 				D29EEDC22D47407E008AD3ED /* FeatureFlagsProvider.swift in Sources */,
 				D29EED8F2D47199E008AD3ED /* RecipesView.swift in Sources */,
 				D29EED8D2D47199E008AD3ED /* RecipesApp.swift in Sources */,

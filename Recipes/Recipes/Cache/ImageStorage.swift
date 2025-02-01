@@ -14,20 +14,10 @@ protocol ImageStorageProtocol {
 }
 
 struct ImageStorage: ImageStorageProtocol {
-    static let shared = ImageStorage()
-    
-    private let container: NSPersistentContainer
     private let context: NSManagedObjectContext
     
-    private init() {
-        container = NSPersistentContainer(name: "Recipes")
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-            if let error = error as NSError? {
-                print("Unresolved error \(error), \(error.userInfo)")
-            }
-        })
-        context = container.newBackgroundContext()
-        context.automaticallyMergesChangesFromParent = true
+    init(context: NSManagedObjectContext) {
+        self.context = context
     }
     
     func create(_ image: Data, url: String) async throws {
