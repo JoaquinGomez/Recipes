@@ -7,9 +7,14 @@
 
 import CoreData
 
+struct StoredImage {
+    let timestamp: Date?
+    let data: Data?
+}
+
 protocol ImageStorageProtocol {
     func create(_ image: Data, url: String) async throws
-    func read(url: String) async throws -> Item?
+    func read(url: String) async throws -> StoredImage?
     func delete(url: String) async throws
 }
 
@@ -33,8 +38,29 @@ struct ImageStorage: ImageStorageProtocol {
             }
         }
     }
+
+    func read(url: String) async throws -> StoredImage? {
+        guard let item = try await readItem(url: url) else {
+            return nil
+        }
+        return StoredImage(timestamp: item.timestamp, data: item.data)
+    }
     
-    func read(url: String) async throws -> Item? {
+    func delete(url: String) async throws {
+        do {
+            let item = try await readItem(url: url)
+            if let item {
+                try await context.perform {
+                    context.delete(item)
+                    try context.save()
+                }
+            }
+        } catch {
+            throw error
+        }
+    }
+    
+    private func readItem(url: String) async throws -> Item? {
         var result: Item?
         do {
             try await context.perform {
@@ -46,19 +72,5 @@ struct ImageStorage: ImageStorageProtocol {
             throw error
         }
         return result
-    }
-    
-    func delete(url: String) async throws {
-        do {
-            let item = try await read(url: url)
-            if let item {
-                try await context.perform {
-                    context.delete(item)
-                    try context.save()
-                }
-            }
-        } catch {
-            throw error
-        }
     }
 }

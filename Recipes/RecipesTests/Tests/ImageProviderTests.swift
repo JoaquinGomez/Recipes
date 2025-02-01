@@ -56,8 +56,6 @@ final class ImageProviderTests: XCTestCase {
     func testGetImageFetchFailureWithEmptyCache() async {
         let expectation1 = expectation(description: "DataFetcher.data(for:) is called")
         let expectation2 = expectation(description: "ImageCache.getImage is called")
-        let image = UIImage(systemName: "fork.knife")!
-        let imageData = image.pngData()!
         dataFetcherDouble.dataForRequestImplementation = { request in
             expectation1.fulfill()
             XCTAssertEqual(request.url!.absoluteString, "http://test.com/image")

@@ -79,7 +79,7 @@ final class RecipesServiceTests: XCTestCase {
         }
         featureFlagsProviderDouble.expectedServiceResponse = .error
         do {
-            let recipes = try await sut.getRecipes()
+            let _ = try await sut.getRecipes()
         } catch {
             expectation2.fulfill()
             XCTAssertEqual(error.localizedDescription, "The data couldn’t be read because it is missing.")

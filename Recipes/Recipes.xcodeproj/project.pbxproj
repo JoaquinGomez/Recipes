@@ -34,6 +34,8 @@
 		D29EEDE12D4E8922008AD3ED /* DataFetcherDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29EEDE02D4E8922008AD3ED /* DataFetcherDouble.swift */; };
 		D29EEDE32D4E90EE008AD3ED /* ImageProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29EEDE22D4E90EE008AD3ED /* ImageProviderTests.swift */; };
 		D29EEDE52D4E910A008AD3ED /* ImageCacheDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29EEDE42D4E910A008AD3ED /* ImageCacheDouble.swift */; };
+		D29EEDE72D4E9B3E008AD3ED /* ImageCacheTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29EEDE62D4E9B3E008AD3ED /* ImageCacheTests.swift */; };
+		D29EEDE92D4E9B97008AD3ED /* ImageStorageDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29EEDE82D4E9B97008AD3ED /* ImageStorageDouble.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +86,8 @@
 		D29EEDE02D4E8922008AD3ED /* DataFetcherDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcherDouble.swift; sourceTree = "<group>"; };
 		D29EEDE22D4E90EE008AD3ED /* ImageProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProviderTests.swift; sourceTree = "<group>"; };
 		D29EEDE42D4E910A008AD3ED /* ImageCacheDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheDouble.swift; sourceTree = "<group>"; };
+		D29EEDE62D4E9B3E008AD3ED /* ImageCacheTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheTests.swift; sourceTree = "<group>"; };
+		D29EEDE82D4E9B97008AD3ED /* ImageStorageDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStorageDouble.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,6 +233,7 @@
 				D29EEDDE2D4E8825008AD3ED /* FeatureFlagsProviderDouble.swift */,
 				D29EEDE02D4E8922008AD3ED /* DataFetcherDouble.swift */,
 				D29EEDE42D4E910A008AD3ED /* ImageCacheDouble.swift */,
+				D29EEDE82D4E9B97008AD3ED /* ImageStorageDouble.swift */,
 			);
 			path = Doubles;
 			sourceTree = "<group>";
@@ -239,6 +244,7 @@
 				D29EEDA22D4719A1008AD3ED /* RecipesViewModelTests.swift */,
 				D29EEDDC2D4E87DF008AD3ED /* RecipesServiceTests.swift */,
 				D29EEDE22D4E90EE008AD3ED /* ImageProviderTests.swift */,
+				D29EEDE62D4E9B3E008AD3ED /* ImageCacheTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -398,10 +404,12 @@
 				D29EEDE12D4E8922008AD3ED /* DataFetcherDouble.swift in Sources */,
 				D29EEDD92D4E7C47008AD3ED /* RecipesServiceDouble.swift in Sources */,
 				D29EEDDF2D4E8825008AD3ED /* FeatureFlagsProviderDouble.swift in Sources */,
+				D29EEDE92D4E9B97008AD3ED /* ImageStorageDouble.swift in Sources */,
 				D29EEDE52D4E910A008AD3ED /* ImageCacheDouble.swift in Sources */,
 				D29EEDE32D4E90EE008AD3ED /* ImageProviderTests.swift in Sources */,
 				D29EEDA32D4719A1008AD3ED /* RecipesViewModelTests.swift in Sources */,
 				D29EEDDB2D4E7E39008AD3ED /* ImageProviderDouble.swift in Sources */,
+				D29EEDE72D4E9B3E008AD3ED /* ImageCacheTests.swift in Sources */,
 				D29EEDDD2D4E87DF008AD3ED /* RecipesServiceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
