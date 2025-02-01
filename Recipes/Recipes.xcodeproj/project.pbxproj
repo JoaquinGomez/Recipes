@@ -25,6 +25,8 @@
 		D29EEDCD2D48A3B3008AD3ED /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29EEDCC2D48A3B3008AD3ED /* ImageCache.swift */; };
 		D29EEDCF2D4CA0FD008AD3ED /* DataFetcherProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29EEDCE2D4CA0FD008AD3ED /* DataFetcherProtocol.swift */; };
 		D29EEDD12D4E78AF008AD3ED /* ImageStorageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29EEDD02D4E78AF008AD3ED /* ImageStorageFactory.swift */; };
+		D29EEDD32D4E7A96008AD3ED /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29EEDD22D4E7A96008AD3ED /* Recipe.swift */; };
+		D29EEDD52D4E7AD7008AD3ED /* RecipesViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29EEDD42D4E7AD7008AD3ED /* RecipesViewModelFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +68,8 @@
 		D29EEDCC2D48A3B3008AD3ED /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		D29EEDCE2D4CA0FD008AD3ED /* DataFetcherProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcherProtocol.swift; sourceTree = "<group>"; };
 		D29EEDD02D4E78AF008AD3ED /* ImageStorageFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStorageFactory.swift; sourceTree = "<group>"; };
+		D29EEDD22D4E7A96008AD3ED /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		D29EEDD42D4E7AD7008AD3ED /* RecipesViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesViewModelFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +164,7 @@
 				D29EEDC42D47EBFA008AD3ED /* Model */,
 				D29EED8E2D47199E008AD3ED /* RecipesView.swift */,
 				D29EEDBD2D4725C4008AD3ED /* RecipesViewModel.swift */,
+				D29EEDD42D4E7AD7008AD3ED /* RecipesViewModelFactory.swift */,
 			);
 			path = MVVM;
 			sourceTree = "<group>";
@@ -168,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				D29EEDBB2D47244F008AD3ED /* RecipeModel.swift */,
+				D29EEDD22D4E7A96008AD3ED /* Recipe.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -339,8 +345,10 @@
 				D29EED8F2D47199E008AD3ED /* RecipesView.swift in Sources */,
 				D29EED8D2D47199E008AD3ED /* RecipesApp.swift in Sources */,
 				D29EED992D4719A0008AD3ED /* Recipes.xcdatamodeld in Sources */,
+				D29EEDD32D4E7A96008AD3ED /* Recipe.swift in Sources */,
 				D29EEDBC2D47244F008AD3ED /* RecipeModel.swift in Sources */,
 				D29EEDBE2D4725C4008AD3ED /* RecipesViewModel.swift in Sources */,
+				D29EEDD52D4E7AD7008AD3ED /* RecipesViewModelFactory.swift in Sources */,
 				D29EEDC82D47EC75008AD3ED /* RecipesServiceError.swift in Sources */,
 				D29EEDC02D472CDB008AD3ED /* RecipesService.swift in Sources */,
 			);

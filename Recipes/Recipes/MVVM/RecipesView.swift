@@ -9,19 +9,7 @@ import SwiftUI
 import CoreData
 
 struct RecipesView: View {
-    @StateObject private var viewModel = RecipesViewModel(
-        service: RecipesService(
-            featureFlagsProvider: FeatureFlagsProvider.shared,
-            dataFetcher: URLSession.shared
-        ),
-        imageProvider: ImageProvider(
-            cache: ImageCache(
-                cacheExpiration: 1000000,
-                imageStorage: ImageStorageFactory.makeImageStorage()
-            ),
-            dataFetcher: URLSession.shared
-        )
-    )
+    @StateObject private var viewModel = RecipesViewModelFactory.makeRecipesViewModel()
     
     @ScaledMetric var scale: CGFloat = 1
     
