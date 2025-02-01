@@ -13,7 +13,7 @@ struct StoredImage {
 }
 
 protocol ImageStorageProtocol {
-    func create(_ image: Data, url: String) async throws
+    func create(_ image: Data, url: String, timestamp: Date) async throws
     func read(url: String) async throws -> StoredImage?
     func delete(url: String) async throws
 }
@@ -25,10 +25,10 @@ struct ImageStorage: ImageStorageProtocol {
         self.context = context
     }
     
-    func create(_ image: Data, url: String) async throws {
+    func create(_ image: Data, url: String, timestamp: Date) async throws {
         await context.perform {
             let newItem = Item(context: context)
-            newItem.timestamp = Date()
+            newItem.timestamp = timestamp
             newItem.url = url
             newItem.data = image
             do {

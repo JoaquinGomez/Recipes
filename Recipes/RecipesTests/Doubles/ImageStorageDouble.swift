@@ -9,12 +9,12 @@ import Foundation
 @testable import Recipes
 
 final class ImageStorageDouble: ImageStorageProtocol {
-    var createImplementation: ((Data, String) async throws -> ())!
+    var createImplementation: ((Data, String, Date) async throws -> ())!
     var readImplementation: ((String) async throws -> StoredImage?)!
     var deleteImplementation: ((String) async throws -> ())!
     
-    func create(_ image: Data, url: String) async throws {
-        try await createImplementation(image, url)
+    func create(_ image: Data, url: String, timestamp: Date) async throws {
+        try await createImplementation(image, url, timestamp)
     }
     
     func read(url: String) async throws -> StoredImage? {

@@ -12,7 +12,7 @@ final class ImageCacheTests: XCTestCase {
     var sut: ImageCache!
     var imageStorageDouble: ImageStorageDouble!
 
-    @MainActor override func setUpWithError() throws {
+    override func setUpWithError() throws {
         imageStorageDouble = .init()
     }
 
@@ -103,10 +103,11 @@ final class ImageCacheTests: XCTestCase {
         let expectation = expectation(description: "ImageStorage.create(image:,url:) is called")
         let image = UIImage(systemName: "fork.knife")!
         let imageData = image.pngData()!
-        imageStorageDouble.createImplementation = { data, url in
+        imageStorageDouble.createImplementation = { data, url, timestamp in
             expectation.fulfill()
             XCTAssertEqual(url, "http://test.com/image")
             XCTAssertEqual(imageData, data)
+            XCTAssertNotNil(timestamp)
         }
         await sut.saveImage(urlString: "http://test.com/image", data: imageData)
         

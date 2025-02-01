@@ -42,7 +42,7 @@ final class ImageCache: ImageCacheProtocol {
     
     func saveImage(urlString: String, data: Data) async {
         do {
-            try await imageStorage.create(data, url: urlString)
+            try await imageStorage.create(data, url: urlString, timestamp: Date())
         } catch {
             print(error)
         }

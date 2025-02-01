@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D24D11062D4EA78C00628D38 /* ImageStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24D11052D4EA78C00628D38 /* ImageStorageTests.swift */; };
 		D29EED8D2D47199E008AD3ED /* RecipesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29EED8C2D47199E008AD3ED /* RecipesApp.swift */; };
 		D29EED8F2D47199E008AD3ED /* RecipesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29EED8E2D47199E008AD3ED /* RecipesView.swift */; };
 		D29EED912D4719A0008AD3ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D29EED902D4719A0008AD3ED /* Assets.xcassets */; };
@@ -56,6 +57,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D24D11052D4EA78C00628D38 /* ImageStorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStorageTests.swift; sourceTree = "<group>"; };
 		D29EED892D47199E008AD3ED /* Recipes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Recipes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D29EED8C2D47199E008AD3ED /* RecipesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesApp.swift; sourceTree = "<group>"; };
 		D29EED8E2D47199E008AD3ED /* RecipesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesView.swift; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 				D29EEDDC2D4E87DF008AD3ED /* RecipesServiceTests.swift */,
 				D29EEDE22D4E90EE008AD3ED /* ImageProviderTests.swift */,
 				D29EEDE62D4E9B3E008AD3ED /* ImageCacheTests.swift */,
+				D24D11052D4EA78C00628D38 /* ImageStorageTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -409,6 +412,7 @@
 				D29EEDE32D4E90EE008AD3ED /* ImageProviderTests.swift in Sources */,
 				D29EEDA32D4719A1008AD3ED /* RecipesViewModelTests.swift in Sources */,
 				D29EEDDB2D4E7E39008AD3ED /* ImageProviderDouble.swift in Sources */,
+				D24D11062D4EA78C00628D38 /* ImageStorageTests.swift in Sources */,
 				D29EEDE72D4E9B3E008AD3ED /* ImageCacheTests.swift in Sources */,
 				D29EEDDD2D4E87DF008AD3ED /* RecipesServiceTests.swift in Sources */,
 			);

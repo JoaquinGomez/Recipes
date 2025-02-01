@@ -13,7 +13,7 @@ final class ImageProviderTests: XCTestCase {
     var imageCacheDouble: ImageCacheDouble!
     var dataFetcherDouble: DataFetcherDouble!
 
-    @MainActor override func setUpWithError() throws {
+    override func setUpWithError() throws {
         imageCacheDouble = .init()
         dataFetcherDouble = .init()
         sut = .init(cache: imageCacheDouble, dataFetcher: dataFetcherDouble)
