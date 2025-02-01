@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class Recipe: Identifiable, Decodable {
+final class Recipe: Identifiable, Decodable, Equatable {
     enum CodingKeys: String, CodingKey {
         case name, cuisine
         case uuid = "uuid"
@@ -23,6 +23,22 @@ final class Recipe: Identifiable, Decodable {
     
     var id: UUID {
         UUID(uuidString: uuid) ?? .init()
+    }
+    
+    internal init(uuid: String, name: String, cuisine: String, thumbnailPath: String, image: UIImage? = nil) {
+        self.uuid = uuid
+        self.name = name
+        self.cuisine = cuisine
+        self.thumbnailPath = thumbnailPath
+        self.image = image
+    }
+    
+    static func == (lhs: Recipe, rhs: Recipe) -> Bool {
+        lhs.uuid == rhs.uuid &&
+        lhs.name == rhs.name &&
+        lhs.cuisine == rhs.cuisine &&
+        lhs.thumbnailPath == rhs.thumbnailPath &&
+        lhs.image == rhs.image
     }
 }
 

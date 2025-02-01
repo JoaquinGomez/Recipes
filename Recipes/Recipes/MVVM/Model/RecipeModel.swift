@@ -7,6 +7,10 @@
 
 import Foundation
 
-struct RecipeModel: Decodable {
+struct RecipeModel: Decodable, Equatable {
     var recipes: [Recipe]
+    
+    static func == (lhs: RecipeModel, rhs: RecipeModel) -> Bool {
+        lhs.recipes == rhs.recipes
+    }
 }
